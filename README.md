@@ -483,7 +483,7 @@ exitButton.setOnClickListener(new View.OnClickListener(){
 ```
           
 #### 5) 앱 시연영상   
-[![Video Label](https://img.youtube.com/vi/j18SoUClJeI/0.jpg)](https://youtu.be/j18SoUClJeI)   
+[![Video Label](https://img.youtube.com/vi/j18SoUClJeI/0.jpg)](https://www.youtube.com/watch?v=sx_Ajdshu3k)   
 App에서 실행되는 시연영상입니다. 스트리밍과 서버 또한 정상작동 중인 입니다.
    
   
