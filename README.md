@@ -1,4 +1,4 @@
-## white box project
+white box project
 
 ### 1.시스템
 
