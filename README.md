@@ -138,8 +138,8 @@ Wifi 무선 통신을 하여 앱에서 실시간 스트리밍을 위해 실시�
 소켓 통신을 하기 위한 클래스 부분입니다. 
 ```java
     //서버
-    //서버와 연결하기 위한 연결고리로써 메인 화면에서는 필요한 이유가 종료버튼에서
-    //아이나 사람, 물체가 감지되었을 때 종료버튼이 실행되지않고 경고창을 나타내기 위해서 필요합니다.
+    //서버와 연결하기 위한 연결고리이며 메인 화면에서는 종료버튼에서
+    //아이나 사람이 감지되었을 때 종료버튼이 실행되지않고 경고창을 나타내기 위해서 필요합니다.
     public class MyClientTask extends AsyncTask<Void, Void, Void> {
         String dstAddress;
         int dstPort;
@@ -219,7 +219,7 @@ Wifi 무선 통신을 하여 앱에서 실시간 스트리밍을 위해 실시�
         }
     }//서버 
 ```
-(위의 코드에서 생성자 부분만 표시한 코드입니다.)   
+위의 코드 생성자 부분만 표시한 코드입니다. 
 ```java
 //constructor
         MyClientTask(String addr, int port, String message){
