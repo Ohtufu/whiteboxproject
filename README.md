@@ -9,7 +9,7 @@
 스트리밍 및 좌석매핑, 아이의 탐지를 확인하는 역할인 테블릿 1대를 이용하였습니다.
 
 * 시스템 흐름도 
-![image](https://user-images.githubusercontent.com/55979143/75853247-05af3b80-5e31-11ea-9c11-64d596571564.png)
+![image](https://user-images.githubusercontent.com/55979143/79416387-880f4b80-7fea-11ea-99f3-404e03fedeb0.png)
 
 ### 2. 서버(Raspberry pi B3:python)  
 ![image](https://user-images.githubusercontent.com/55979143/79416328-58f8da00-7fea-11ea-96bc-41e7e5cdf1c9.png)
