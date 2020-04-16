@@ -34,7 +34,7 @@ M = cv2.getPerspectiveTransform(pts1,pts2)
 img_result = cv2.warpPerspective(img_original, M, (weight,height))
 cv2.imshow("img_Homograph", img_result)
 ```
-(단, 프로젝트 당시 코드에서는 모형으로 진행하였고 다른 문제로 인하여 Homography 부분은 제외하고 진행하였습니다. 이 코드소스는 따로 Homography.py명으로 업로드 되어있습니다.)
+(단, 프로젝트 당시 코드에서는 모형으로 진행하였고 다른 문제로 인하여 Homography 부분은 제외하고 진행하였습니다. 이 코드 소스는 따로 Homography.py 명으로 업로드되어 있습니다.)
 
 [참조](https://opencv-python.readthedocs.io/en/latest/doc/10.imageTransformation/imageTransformation.html)
 
