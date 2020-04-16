@@ -11,8 +11,8 @@
 * 시스템 흐름도 
 ![image](https://user-images.githubusercontent.com/55979143/75853247-05af3b80-5e31-11ea-9c11-64d596571564.png)
 
-### 2. 서버(Raspberry pi B3:python)
-![image](https://user-images.githubusercontent.com/60215726/74607811-5c253600-511f-11ea-82f4-414d0e1cf34e.png)
+### 2. 서버(Raspberry pi B3:python)  
+![image](https://user-images.githubusercontent.com/55979143/79416328-58f8da00-7fea-11ea-96bc-41e7e5cdf1c9.png)
 
 #### 1)Homography
 
