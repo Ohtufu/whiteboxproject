@@ -2,8 +2,8 @@
 
 ### 1.시스템
 
-* 시스템 구상도  
-![image](https://user-images.githubusercontent.com/55979143/79416092-d5d78400-7fe9-11ea-9738-9420ea392e7a.png)
+* 시스템 구성도  
+![image](https://user-images.githubusercontent.com/55979143/79418570-f1458d80-7fef-11ea-997a-bc6f0a8a0719.png)
 위의 구상도와 같이 스쿨버스에 카메라 역활을 하는 라즈베리 파이 Zero kit 2개를 설치한다.
 또한 App을 통해 외, 내부를 실시간 스트리밍 시청 가능하며 좌석 매핑에 대한 좌표를 설정, 저장해서 OS와 서버 담당인 라즈베리 파이 B3에서 송수신합니다. 운행 종류 후 '종료' 버튼을 누르면 ROI, Histogram 이용한 영상처리로 버스 내부의 아이 유무를 판단합니다.  
 
