@@ -8,13 +8,13 @@
 좌석 매핑에 대한 좌표를 기억하여 영상처리을 이용한 ROI, 좌석 비교 등등의 서버담을 하는 라즈베리파이 B3 1대,
 스트리밍 및 좌석매핑, 아이의 탐지를 확인하는 역할인 테블릿 1대를 이용하였습니다.
 
-* 시스템 흐름도 
-![image](https://user-images.githubusercontent.com/55979143/79416387-880f4b80-7fea-11ea-99f3-404e03fedeb0.png)
+* 시스템 흐름도   
+![image](https://user-images.githubusercontent.com/55979143/79416387-880f4b80-7fea-11ea-99f3-404e03fedeb0.png)  
 
 ### 2. 서버(Raspberry pi B3:python)  
-![image](https://user-images.githubusercontent.com/55979143/79416328-58f8da00-7fea-11ea-96bc-41e7e5cdf1c9.png)
+![image](https://user-images.githubusercontent.com/55979143/79416328-58f8da00-7fea-11ea-96bc-41e7e5cdf1c9.png)  
 
-#### 1)Homography
+#### 1)Homography  
 
 Homography 기법을 사용한 이유는 3D의 이미지를 2D처럼 평면화를 해주기 위해 사용하였습니다.
 카메라에서 옆으로 찍히는 좌석들 경우 대각선으로 찍히게 되는 데 성인의 경우에는 좌석에서 차지하는 비율이 많아지고 아이의 경우에는 좌석에서 차지하는 비율이 적어지게 되며 대각선으로 찍히게 되면 그 비율마저 더 작아지게 되므로 이미지 비교 시에 더 확실한 탐지를 위하여 사용하였습니다.
