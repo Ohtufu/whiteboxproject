@@ -62,7 +62,7 @@ def startROI():
 
 프로젝트에서는 아이가 탐지가 되었는지를 구별하기 위해 사용하였습니다.
 처음 이미지와 비교할 이미지의 각각의 calcHist 명령어를 통해 히스토그램을 계산을 하고 CompareHist 명령어를 통하여 비교한 수치 값과 기준점을 비교하여 아이의 탐지 여부를 파악하였습니다.
-![비교](https://user-images.githubusercontent.com/60215726/74666635-35313780-51e5-11ea-8a3b-9bdd5bf3110b.PNG)
+![비교](https://user-images.githubusercontent.com/60215726/74666635-35313780-51e5-11ea-8a3b-9bdd5bf3110b.PNG)  
 두 이미지의 히스토그램의 수치를 도표로 나타낸 것이며, 아래 이미지는 프로젝트에서 사용한  cv2.HISTCMP_CORREL(상관) 입니다.  
 ![co](https://user-images.githubusercontent.com/60215726/74666819-8d683980-51e5-11ea-9c94-63ba4956522c.PNG)
 ```python
@@ -122,13 +122,13 @@ Wifi 무선 통신을 하여 앱에서 실시간 스트리밍을 위해 실시�
 #!/bin/bash 
 /home/pi/gst-rtsp-server/examples/./test-launch "( rpicamsrc preview=false bitrate=2000000 keyframe-interval=30 ! video/x-h264, framerate=30/1 ! h264parse ! rtph264pay name=pay0 pt=96 )"
 ```
-카메라 역할만 하는 제로킷들은 따로 모니터가 불필요해서 전원만 주어도 자동으로 서버와 카메라가 실행이 되도록 해주는 설정도 해주었습니다. 
-여기서는 리눅스 작업 스케줄러인 crontab을 사용하였고 부팅시 켜지기 위함으로 
+카메라 역할을 하는 Zero kit들은 따로 모니터가 불필요해서 전원이 켜지면 자동으로 서버와 카메라가 실행이 되도록 설정을했습니다. 
+리눅스 작업 스케줄러인 crontab을 사용하였고 부팅시 켜지기 위함으로 
 **crontab**
 ```linux
 @reboot /home/pi/gst-rtsp-server/examples/cam.sh
 ```
-추가 입력해주었습니다.
+추가 입력해주었습니다.  
 ![2020-02-18-173422_1366x768_scrot](https://user-images.githubusercontent.com/60215726/74733387-91e92c80-528f-11ea-969c-58c140736f8a.png)
 
 ### 4. APP(Java)
