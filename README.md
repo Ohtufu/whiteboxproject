@@ -17,7 +17,7 @@
 #### 1)Homography  
 
 Homography 기법을 사용한 이유는 3D의 이미지를 2D처럼 평면화를 해주기 위해 사용하였습니다.
-좌석을 매핑할 때 카메라에서 위, 옆으로 찍히는 좌석들 경우 대각선으로 찍히게 됩니다. 성인과는 다르게 아이의 경우에는 좌석에서 차지하는 비율이 적은데 대각선으로 찍히게 되면 그 비율마저 더 작아지게 되므로 이미지 비교 시에 더 확실한 탐지를 위하여 사용하였습니다.
+좌석을 매핑할 때 카메라의 위, 옆에서 찍히는 좌석은 대각선으로 찍히게 됩니다. 성인과는 다르게 아이의 경우에는 좌석에서 차지하는 비율이 상대적으로 적은데 대각선으로 찍히게 되면 그 비율마저 더 작아지게 되므로 이미지 비교 시에 더 확실한 탐지를 위하여 사용하였습니다.
 ![ho](https://user-images.githubusercontent.com/60215726/74673767-408b5f80-51f3-11ea-9063-1f3d91e6b167.PNG)
 왼쪽이미지가 원본이며 중앙에 이미지는 일반 ROI를 한 경우이며 맨 오른쪽이미지는 Homography+ROI를 한 경우입니다.
 openCV에서 perspective transformation = homography 관계이며, cv2.getPerspectiveTransform( )와 cv2.findHomography( ) 로 perspective 변환과 homography를 각각 지원하는데 4개의 점만을 이용하여 변환행렬을 찾는 cv2.getPerspectiveTransform( )을 이용하였습니다.
