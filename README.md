@@ -21,10 +21,10 @@ Homography 기법은 3D의 이미지를 2D처럼 평면화를 해주기 위해 �
 ![ho](https://user-images.githubusercontent.com/60215726/74673767-408b5f80-51f3-11ea-9063-1f3d91e6b167.PNG)
 왼쪽이미지가 원본이며 중앙에 이미지는 일반 ROI를 한 경우이며 맨 오른쪽이미지는 Homography+ROI를 한 경우입니다.
 openCV에서 perspective transformation = homography 관계이며, cv2.getPerspectiveTransform( )와 cv2.findHomography( ) 로 perspective 변환과 homography를 각각 지원하는데 4개의 점만을 이용하여 변환행렬을 찾는 cv2.getPerspectiveTransform( )을 이용하였습니다.
-변환 행렬을 구하기 위해서 cv2.getPerspectiveTransfom()함수를 이용하고 cv2.warpPerspective() 함수에 변환행렬값을 적용하여 최종 결과 이미지를 얻는 것입니다.
+변환 행렬을 구하기 위해서 cv2.getPerspectiveTransfom()함수를 이용하고 cv2.warpPerspective() 함수에 변환행렬값을 적용하여 최종 결과 이미지를 얻는 것입니다.  
 ```python
 #[x,y] 좌표점을 4*2의 행렬로 작성
-#좌표점은 좌상->좌하->우상->우하
+#좌표점은 좌상 -> 좌하 -> 우상 -> 우하
 pts1 = np.float32([list(point_list[0]),list(point_list[1]),list(point_list[2]),list(point_list[3])])
 # 좌표의 이동점
 pts2 = np.float32([[0,0],[weight,0],[0,height],[weight,height]])
