@@ -123,7 +123,7 @@ Wifi 무선 통신을 하여 앱에서 실시간 스트리밍을 위해 실시�
 #!/bin/bash 
 /home/pi/gst-rtsp-server/examples/./test-launch "( rpicamsrc preview=false bitrate=2000000 keyframe-interval=30 ! video/x-h264, framerate=30/1 ! h264parse ! rtph264pay name=pay0 pt=96 )"
 ```
-카메라 역할을 하는 Zero kit들은 따로 모니터가 불필요해서 전원이 켜지면 자동으로 서버와 카메라가 실행이 되도록 설정 을했습니다. 
+카메라 역할을 하는 Zero kit들은 따로 모니터가 불필요해서 전원이 켜지면 자동으로 서버를 열고 카메라가 실행이 되도록 설정 을했습니다. 
 리눅스 작업 스케줄러인 crontab을 사용하였고 부팅 시 켜지기 위함으로 
 **crontab**
 ```linux
