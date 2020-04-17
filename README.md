@@ -382,7 +382,7 @@ else if (event.getAction() == MotionEvent.ACTION_UP) {
 여기까지 작업을 완료를 하면 서버에 한 좌석에 대한 매핑이 끝납니다. 
    
 #### 4) 종료시
-버튼 2번 눌르는 방식으로 진행했었으나 소켓 통신 중에 처음 눌렀을 때의 반응이 없는 것을 확인되었습습니다. 그래서 두 번의 클릭 이후 부터 서버의 반응을 확인하고 행동하게한 수정된 방식입니다. 
+버튼 2번 눌르는 방식으로 진행했었으나 소켓 통신 중에 처음 눌렀을 때의 반응이 없는 것을 확인되었습니다. 그래서 두 번의 클릭 이후 부터 서버의 반응을 확인하고 행동하게한 수정된 방식입니다. 
 ```java
 Button exitButton = (Button) findViewById(R.id.exit);
 exitButton.setOnClickListener(new View.OnClickListener(){
@@ -466,7 +466,7 @@ exitButton.setOnClickListener(new View.OnClickListener(){
             }
         });
 ```   
-종료 버튼을 눌렀을 시에 움직이도록 해주는 but_num이 존재를 하는 데 but_num은 위에 코드에는 존재하지 않지만 같은 클래스파일에 존재하는 서버에서 응답으로 오는 것입니다. 앱에서 서버의 비교를 시작하는 명령을 통해 응답으로 오는 감지를 뜻하는 detech라는 것이 넘어오게 되면 but_num의 변화를 시켜 사용자에게 경고창을 보여주게 됩니다.
+종료 버튼을 눌렀을 시, 행동을 결정하는 but_num이 존재하지만 코드에는 없습니다. 같은 클래스 파일에있는 서버에서 응답으로 오는 방식입니다. 앱에서 서버의 비교를 시작하는 명령을 통해 응답의 감지를 뜻하는 detech이 넘어오게 되면 but_num의 변화를 시킨  사용자에게 경고창을 보여주게 됩니다.
 ```java
 //MainActivity.java 에 속하는 서버 메소드 부분이며 but_num을 변화시켜주는 부분입니다.
  @Override
