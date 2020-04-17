@@ -228,8 +228,8 @@ Wifi 무선 통신을 하여 앱에서 실시간 스트리밍을 위해 실시�
             myMessage = message;
         }
 ```
-MyClientTask의 객체를 생성, 위의 MyClientTask의 생성자를 변수 순으로 입력하여 이용합니다.
-addr은 서버역할을 하는 ip, port는 8888로 연결되어있는동안 변하지 않는 숫자들임으로 ip은 처음에 받아서 저장하고 사용하도록 변수에 저장하여 사용하였습니다.   
+MyClientTask의 객체를 생성, 생성자를 변수 순으로 입력하여 이용합니다.
+addr은 서버역할을 하는 ip, port는 8888로 연결되어있는동안 변하지 않는 숫자들임으로 ip는 처음에 받아서 저장하고 사용하도록 변수에 저장하여 사용하였습니다.   
 (IpReciver.java 파일에 저장되어있는 것처럼 카메라와 서버의 Ip를 저장하고 이용할 수 있도록 하였습니다.)
 message은 클라이언트가 서버에 명령을 내리기위한 메시지로 서버에서 저장되어있는 이름과 동일하게 사용해야 합니다.
 아래의 코드에서 message인 his_msg는 histogram을 나타내고 myClientTask2.execute();의 실행으로 서버에서 histogram인 비교를 시작합니다. 
@@ -282,12 +282,12 @@ java에서 이렇게 수신을 한 뒤 response의 변수에 python의 답을 �
  dlgEdtIP_02 = (EditText) dialogView.findViewById(R.id.dlgEdt2);
  ip.setIp1(dlgEdtIP_02.getText().toString());
 ```
-이처럼 입력받은 뒤 IpReceiver에 저장한 뒤 이용하도록 만들었습니다. ( 서버와 마찬가지로 ip는 변함이 없고 분할된 스트리밍과 확대된 스트리밍화면인 클래스가 다르기 때문에 번거롭지 않게 하기 위하여 설계하였습니다.)   
+이처럼 입력받은 뒤 IpReceiver에 저장한 뒤 이용하도록 만들었습니다. ( 서버와 마찬가지로 ip는 변함이 없고 분할된 스트리밍 화면과 확대된 단일 스트리밍화면인 클래스가 다르기 때문에 번거롭지 않게 하기 위하여 설계하였습니다.)   
 ```java
 //InsideFullScrren.java 코드
 public static String uri2 = ip.getIp2();
 ```
-위처럼 uri2 변수에 ip를 가져와 사용합니다.
+uri2 변수에 ip를 가져와 사용합니다.
 ```java
 //InsideFullScrren.java 코드
 //스트리밍을 하기 위한 공간과 시작.
@@ -299,7 +299,7 @@ public static String uri2 = ip.getIp2();
 스트리밍을 위한 공간으로 VideoView를 사용하여 스트리밍을 진행합니다. (추후에는 VideoView 대신에 NDK으로 변경할 예정입니다.)     
    
 #### 3) 좌석 매핑
-스트리밍 화면을 캡처를 하여 그 이미지에 드래그로 이용하여 좌석을 매핑하는 방식으로 설정하였습니다.
+스트리밍 화면을 캡처를 하여 캡처한 이미지에 드래그 터치 이벤트로 좌석을 매핑합니다.
 ```java
 //SeatMapping.java
 //여기서 불러온 이미지에서 원하는 곳에 좌석을 매핑하는 부분.
