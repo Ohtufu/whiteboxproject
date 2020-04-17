@@ -228,16 +228,15 @@ Wifi 무선 통신을 하여 앱에서 실시간 스트리밍을 위해 실시�
             myMessage = message;
         }
 ```
-MyClientTask의 객체를 생성, 생성자를 변수 순으로 입력하여 이용합니다.
-addr은 서버역할을 하는 ip, port는 8888로 연결되어있는동안 변하지 않는 숫자들임으로 ip는 처음에 받아서 저장하고 사용하도록 변수에 저장하여 사용하였습니다.   
-(IpReciver.java 파일에 저장되어있는 것처럼 카메라와 서버의 Ip를 저장하고 이용할 수 있도록 하였습니다.)
-message은 클라이언트가 서버에 명령을 내리기위한 메시지로 서버에서 저장되어있는 이름과 동일하게 사용해야 합니다.
+MyClientTask의 객체를 생성, 생성자를 변수 순으로 입력하여 사용합니다.
+addr은 서버 역할을 하는 ip, port는 8888로 연결되어 있는 동안 변하지 않는 숫자입니다. 초기에 ip를 받아서 변수에 저장하여 사용합니다.  (IpReciver.java 파일에 저장되어 있는 것처럼 카메라와 서버의 Ip를 저장하고 이용할 수 있도록 하였습니다.)
+message은 클라이언트가 서버에 명령을 내리기 위한 메시지로 서버에서 저장되어 있는 이름과 동일해야 합니다.
 아래의 코드에서 message인 his_msg는 histogram을 나타내고 myClientTask2.execute();의 실행으로 서버에서 histogram인 비교를 시작합니다. 
 ```java
 //java 클라이언트 서버 통신 실행.
 static String his_msg = "histogram";
 ip_num = ip.getB3_ip();
- //아래 두 줄의 코드가 서버에 원하는 행동을 보내는 것으로
+//아래 두 줄의 코드가 서버에 원하는 행동을 보내는 것으로
 //ip_num은 서버에 연결되어있는 wifi의 ip이며, EndROI는 서버에 저장되어 있는 EndROI의 명령어를 사용하기 위해 보내는 것입니다.
 //종료버튼에서 처음 명령을 보낼 때 비교할 이미지를 ROI를 하기위해 실행을 해줍니다.
 MyClientTask myClientTask2 = new MyClientTask(ip_num, 8888, his_msg);//종료
@@ -254,7 +253,7 @@ myClientTask2.execute();
 ```   
 python에서 수신을 받고 결과물에 따라 답을 보냅니다.   
 ```java
-//클라이언트(java) 클래스 내부에 존재하는 메소드 오버라이딩(histogram비교 후 아이 감지 대한 부분)
+//클라이언트(java) 클래스 내부에 존재하는 메소드 오버라이딩(histogram비교 후 아이의 유, 무감지 대한 부분)
  @Override
         protected void onPostExecute(Void result) {
             // recieveText.setText(response);
@@ -272,7 +271,7 @@ python에서 수신을 받고 결과물에 따라 답을 보냅니다.
         }
     }
 ```   
-java에서 이렇게 수신을 한 뒤 response의 변수에 python의 답을 받게 되는 것 입니다.   
+java에서 수신을 한 뒤, response의 변수에 python의 답을 받게 되는 것 입니다.   
    
 #### 2) 스트리밍(제로 킷과 앱의 연동)
 카메라와 앱에서의 연동을 할 때 이용하는 카메라 IP는 rtsp://192.168.0.0:8554/test 이처럼 구성하며 
@@ -282,7 +281,8 @@ java에서 이렇게 수신을 한 뒤 response의 변수에 python의 답을 �
  dlgEdtIP_02 = (EditText) dialogView.findViewById(R.id.dlgEdt2);
  ip.setIp1(dlgEdtIP_02.getText().toString());
 ```
-이처럼 입력받은 뒤 IpReceiver에 저장한 뒤 이용하도록 만들었습니다. ( 서버와 마찬가지로 ip는 변함이 없고 분할된 스트리밍 화면과 확대된 단일 스트리밍화면인 클래스가 다르기 때문에 번거롭지 않게 하기 위하여 설계하였습니다.)   
+이처럼 입력받은 ip를 IpReceiver에 저장 후, 사용합니다.
+
 ```java
 //InsideFullScrren.java 코드
 public static String uri2 = ip.getIp2();
@@ -296,14 +296,14 @@ uri2 변수에 ip를 가져와 사용합니다.
  v.requestFocus();
  v.start();
 ```	
-스트리밍을 위한 공간으로 VideoView를 사용하여 스트리밍을 진행합니다. (추후에는 VideoView 대신에 NDK으로 변경할 예정입니다.)     
+VideoView를 사용하여 스트리밍을 진행합니다. (추후에는 VideoView 대신에 NDK으로 변경할 예정입니다.)     
    
 #### 3) 좌석 매핑
-스트리밍 화면을 캡처를 하여 캡처한 이미지에 드래그 터치 이벤트로 좌석을 매핑합니다.
+스트리밍 중인 화면을 캡처를 하여 캡처한 이미지에 드래그 터치 이벤트로 좌석을 매핑합니다.
 ```java
 //SeatMapping.java
-//여기서 불러온 이미지에서 원하는 곳에 좌석을 매핑하는 부분.
-//처음에 터치한 곳과 마지막에 터치를 때는 곳 두 점을 서버에 보내는 방식.
+//불러온 이미지에서 원하는 곳에 좌석을 매핑하는 부분.
+//처음에 터치한 곳과 마지막에 터치한 두 점을 서버에 송출.
  int x =0;
             int y =0;
 
@@ -360,8 +360,8 @@ uri2 변수에 ip를 가져와 사용합니다.
                 myClientTask.execute();
                 tv2.setText(msg);
 ```
-먼저 터치를 처음시작하는 코드에서 좌석에 대한 왼쪽 맨위를 나타내며 x와 y를 event.getX와 Y로 통해 받은 뒤
-String msg에 x+“,”+y를 넣어줍니다. 이 부분에서 x와 y를 ‘,’와 합쳐서 서버에 보내는 이유는 연속으로 두 번의 서버에게 통신을 하는 myClientTask.execute()을 한번으로 줄이기 위함입니다. ‘,’를 붙여준 이유는 서버에서 기준으로 잡고 x와 y를 구별해주는 역할로 붙여주었습니다.
+먼저 처음 터치를 시작하는 코드에서 좌석에 대한 왼쪽 맨 위를 나타냅니다. x와 y를 event.getX와 Y로 통해 받은 뒤,
+String msg에 x+“,”+y를 넣어줍니다. 이 부분에서 x와 y를 ‘,’와 합쳐서 서버에 보내는 이유는 두 번 연속으로 서버에게 통신을 하는 myClientTask.execute()을 한 번으로 줄이기 위함입니다. ‘,’를 붙여준 이유는 x와 y를 구별해 주는 역할로 붙여주었습니다.
    
 ```java
 ///터치를 때는 부분코드입니다.
@@ -378,11 +378,11 @@ else if (event.getAction() == MotionEvent.ACTION_UP) {
                 // Toast.makeText(getApplicationContext(), "Up", Toast.LENGTH_LONG).show();
             }
 ```
-터치를 때는 부분으로 오른쪽아래의 x,y좌표를 서버로 보내주는 코드입니다. 방식은 터치를 시작하는 부분과 같고
-여기까지 완료를 하면 서버에 한 좌석에 대한 매핑을 완료를 한 것입니다. 
+터치를 할 때는 부분으로 오른쪽 아래의 x, y좌표를 서버로 보내주는 코드입니다. (터치를 시작하는 부분과 같고 같습니다.)
+여기까지 작업을 완료를 하면 서버에 한 좌석에 대한 매핑이 끝납니다. 
    
 #### 4) 종료시
-버튼 2번 눌르는 방식을 만들었는데 소켓 통신 중에 반응이 처음 눌렀을 때 없게 되는 것을 발견하였고 두 번 이후 부터 서버의 반응이 보이게 되어 이러한 방식을 선택하였습니다.
+버튼 2번 눌르는 방식으로 진행했었으나 소켓 통신 중에 처음 눌렀을 때의 반응이 없는 것을 확인되었습습니다. 그래서 두 번의 클릭 이후 부터 서버의 반응을 확인하고 행동하게한 수정된 방식입니다. 
 ```java
 Button exitButton = (Button) findViewById(R.id.exit);
 exitButton.setOnClickListener(new View.OnClickListener(){
