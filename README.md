@@ -496,4 +496,5 @@ App에서 실행되는 시연영상입니다. 스트리밍과 서버 또한 정�
 ![경진](https://user-images.githubusercontent.com/60215726/74937275-145c2280-542f-11ea-82e5-ae01d26da9ec.PNG)
 
 ### 6. 출처
-![image](https://user-images.githubusercontent.com/55979143/85676174-5361f380-b701-11ea-8830-8ddc898918b4.png)
+![image](https://user-images.githubusercontent.com/55979143/85676459-945a0800-b701-11ea-867d-745728909a05.png)
+
